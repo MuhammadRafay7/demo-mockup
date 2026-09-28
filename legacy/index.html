@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Octaneon Console Today</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:is(.dark *));
+
+      @theme inline {
+        --radius-sm: calc(var(--radius) - 4px);
+        --radius-md: calc(var(--radius) - 2px);
+        --radius-lg: var(--radius);
+        --radius-xl: calc(var(--radius) + 4px);
+        --color-background: var(--background);
+        --color-foreground: var(--foreground);
+        --color-panel: var(--panel);
+        --color-panel-2: var(--panel-2);
+        --color-border: var(--border);
+        --color-border-strong: var(--border-strong);
+        --color-muted: var(--muted);
+        --color-muted-foreground: var(--muted-foreground);
+        --color-primary: var(--primary);
+        --color-primary-foreground: var(--primary-foreground);
+        --color-accent: var(--accent);
+        --color-accent-foreground: var(--accent-foreground);
+        --color-success: var(--success);
+        --color-warn: var(--warn);
+        --color-danger: var(--danger);
+        --color-card: var(--panel);
+        --color-card-foreground: var(--foreground);
+        --color-popover: var(--panel);
+        --color-popover-foreground: var(--foreground);
+        --color-secondary: var(--panel-2);
+        --color-secondary-foreground: var(--foreground);
+        --color-destructive: var(--danger);
+        --color-destructive-foreground: var(--foreground);
+        --color-input: var(--border);
+        --color-ring: var(--primary);
+        --color-ring-offset-background: var(--background);
+        --color-surface: var(--surface, var(--panel));
+        --color-surface-2: var(--surface-2, var(--panel-2));
+        --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+      }
+
+      :root {
+        --radius: 0.375rem;
+        color-scheme: light;
+        --background: oklch(0.985 0 0);
+        --foreground: oklch(0.21 0 0);
+        --panel: oklch(1 0 0);
+        --panel-2: oklch(0.955 0 0);
+        --border: oklch(0.89 0 0);
+        --border-strong: oklch(0.78 0 0);
+        --muted: oklch(0.955 0 0);
+        --muted-foreground: oklch(0.48 0 0);
+        --primary: oklch(0.53 0.19 258);
+        --primary-foreground: oklch(0.99 0 0);
+        --accent: oklch(0.53 0.19 258);
+        --accent-foreground: oklch(0.99 0 0);
+        --success: oklch(0.55 0.15 155);
+        --warn: oklch(0.58 0.15 65);
+        --danger: oklch(0.55 0.21 27);
+      }
+
+      .dark {
+        color-scheme: dark;
+        --background: oklch(0.14 0 0);
+        --foreground: oklch(0.93 0 0);
+        --panel: oklch(0.18 0 0);
+        --panel-2: oklch(0.22 0 0);
+        --border: oklch(0.28 0 0);
+        --border-strong: oklch(0.38 0 0);
+        --muted: oklch(0.22 0 0);
+        --muted-foreground: oklch(0.62 0 0);
+        --primary: oklch(0.65 0.18 255);
+        --primary-foreground: oklch(0.98 0 0);
+        --accent: oklch(0.65 0.18 255);
+        --accent-foreground: oklch(0.98 0 0);
+        --success: oklch(0.72 0.17 155);
+        --warn: oklch(0.78 0.17 75);
+        --danger: oklch(0.65 0.22 25);
+      }
+
+      @layer base {
+        html,
+        body {
+          background-color: var(--color-background);
+          color: var(--color-foreground);
+          font-family: var(--font-sans);
+          font-feature-settings: "kern", "liga";
+          -webkit-font-smoothing: antialiased;
+        }
+        * {
+          border-color: var(--color-border);
+        }
+        .font-mono {
+          font-family: var(--font-mono);
+        }
+        th,
+        td {
+          padding: 0.5rem 0.75rem;
+        }
+        tr > th:first-child,
+        tr > td:first-child {
+          padding-inline-start: 1rem;
+        }
+        tr > th:last-child,
+        tr > td:last-child {
+          padding-inline-end: 1rem;
+        }
+      }
+
+      @utility status-dot {
+        @apply inline-block size-1.5 rounded-full;
+      }
+
+      @utility panel {
+        background-color: var(--color-panel);
+        border: 1px solid var(--color-border);
+      }
+
+      @utility tag {
+        @apply inline-flex items-center gap-1 px-1.5 py-0.5 text-[10px] font-mono uppercase tracking-tight rounded-sm border;
+      }
+
+      @utility input-base {
+        @apply w-full bg-panel-2 ring-1 ring-border rounded-sm px-3 py-2 text-sm focus:ring-primary focus:outline-none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="legacy-root"></div>
+    <script src="shell.js"></script>
+  </body>
+</html>
